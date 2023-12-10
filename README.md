@@ -2,9 +2,7 @@
 
 [![PyPI](https://img.shields.io/pypi/v/dialoget?style=flat-square)](https://pypi.org/project/dialoget/)
 [![Supported Python versions](https://img.shields.io/pypi/pyversions/dialoget.svg)](https://pypi.org/project/dialoget/)
-[![Downloads](https://static.pepy.tech/badge/dialoget/month)](https://pepy.tech/project/dialoget)
 [![check](https://github.com/dialoget/python/actions/workflows/check.yml/badge.svg)](https://github.com/dialoget/python/actions/workflows/check.yml)
-[![Documentation Status](https://docs.org/dialoget/python/badge/?version=latest)](https://docs.dialoget.com/en/latest/?badge=latest)
 
 python.dialoget.com is a test framework for multilanguage source code, based on decorators
 
@@ -112,9 +110,9 @@ This command will generate distribution files in the newly created `dist/` direc
 
 
 + [Versioning - Hatch](https://hatch.pypa.io/latest/version/)
-```bash
-hatch version release
-```
+    ```bash
+    hatch version release
+    ```
 
 ### Publish
 After the build completes successfully, upload the new distribution files to the Python Package Index (PyPI).

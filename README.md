@@ -53,10 +53,16 @@ To update a release of a Python package, you'll typically go through the followi
 3. Update the `CHANGELOG` or `HISTORY` file (if you have one) to document the changes introduced in the new version.
 
 4. Commit the changes and push them to your version control system (e.g., git).
-
+   ```shell
+   git status
+   git add .
+   git commit -m "updated version"
+   git push
+   ```
+   
 5. Tag the commit with the version number:
    ```shell
-   git tag -a v1.0.1 -m "Release version 1.0.1"
+   git tag -a v0.1.1 -m "Release version 0.1.1"
    git push --tags
    ```
 

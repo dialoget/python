@@ -1,4 +1,10 @@
-# dialoget - python library
+# [dialoget](htttp://www.dialoget.com) - python library
+
+[![PyPI](https://img.shields.io/pypi/v/dialoget?style=flat-square)](https://pypi.org/project/dialoget/)
+[![Supported Python versions](https://img.shields.io/pypi/pyversions/dialoget.svg)](https://pypi.org/project/dialoget/)
+[![Downloads](https://static.pepy.tech/badge/dialoget/month)](https://pepy.tech/project/dialoget)
+[![check](https://github.com/dialoget/python/actions/workflows/check.yml/badge.svg)](https://github.com/dialoget/python/actions/workflows/check.yml)
+[![Documentation Status](https://docs.org/dialoget/python/badge/?version=latest)](https://docs.dialoget.com/en/latest/?badge=latest)
 
 python.dialoget.com is a test framework for multilanguage source code, based on decorators
 
@@ -33,7 +39,7 @@ dialoget/
 ## Usage
 
 ```bash
-pip install dialoget==0.0.1
+pip install dialoget
 ```
 
 
@@ -88,20 +94,27 @@ To update a release of a Python package, you'll typically go through the followi
    
 5. Tag the commit with the version number:
    ```shell
-   git tag -a v0.1.3 -m "Release version 0.1.3"
+   git tag -a v0.1.7 -m "Release version 0.1.7"
    git push --tags
    ```
    
 ## Build
++ [build 1.0.3](https://pypa-build.readthedocs.io/en/latest/)
 
 Build the new distribution files for the package using your chosen build tool, typically the build package:
 Run the build module from the root of the project where the `pyproject.toml` file is located:
 This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
    ```shell
    pip install build
-   python -m build --version 0.1.3
+   python -m build --version 0.1.5
+   python -m build
    ```
 
+
++ [Versioning - Hatch](https://hatch.pypa.io/latest/version/)
+```bash
+hatch version release
+```
 
 ### Publish
 After the build completes successfully, upload the new distribution files to the Python Package Index (PyPI).
@@ -111,6 +124,8 @@ Upload your package to PyPI using `twine`
    ```
 
 ### Github Release
+
+
 
 If your project is hosted on GitHub or a similar platform, you may also want to create a GitHub release:
 - Go to the "Releases" section of your repository.

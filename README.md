@@ -6,6 +6,7 @@ The test directory structure for Python and Java projects will often follow conv
 Below, are typical structures for both languages, which help in organizing tests based on their type (e.g., unit tests, functional tests, integration tests).
 
 
+## Project
 ```
 dialoget/
 │
@@ -13,8 +14,7 @@ dialoget/
 │   └── dialoget.py       # Python file with code for the package
 │
 ├── tests/               # Unit tests for the package
-│   ├── dialoget.py
-│   └── test_module2.py
+│   └── dialoget.py
 │
 ├── docs/                # Documentation for the package
 │   ├── conf.py
@@ -23,49 +23,97 @@ dialoget/
 │
 ├── README.md            # README file with a description of the package, installation instructions, etc.
 ├── LICENSE              # License file specifying how the package can be used and shared
-├── setup.py             # Setuptools script for installation and distribution of the package
+├── pyproject.toml       # Setuptools script for installation and distribution of the package
 ├── setup.cfg            # Configuration settings for setuptools
 ├── requirements.txt     # File listing all dependencies for the package
 └── .gitignore           # Specifies intentionally untracked files to ignore for git
 ```
 
 
+## Usage
 
-## Build
+```bash
+pip install dialoget==0.0.1
+```
+
+
+## Contribution
+
+To update a release of a Python package, you'll typically go through the following general steps:
+
+1. Update the code or documentation to incorporate the new changes or improvements.
+
+2. Update the package version number to indicate a new release:
+   - Follow semantic versioning (or "semver") principles, using version numbers like MAJOR.MINOR.PATCH:
+     - Increment the MAJOR version when you make incompatible API changes,
+     - Increment the MINOR version when you add functionality in a backward-compatible manner, and
+     - Increment the PATCH version when you make backward-compatible bug fixes.
+   - Change the version number in your package's `__init__.py` file, `setup.cfg`, `pyproject.toml` file, wherever it's defined.
+
+3. Update the `CHANGELOG` or `HISTORY` file (if you have one) to document the changes introduced in the new version.
+
+4. Commit the changes and push them to your version control system (e.g., git).
+
+5. Tag the commit with the version number:
+   ```shell
+   git tag -a v1.0.1 -m "Release version 1.0.1"
+   git push --tags
+   ```
+
+6. Build the new distribution files for the package using your chosen build tool, typically the build package:
+   ```shell
+   python -m build
+   ```
+
+7. Upload the new distribution files to the Python Package Index (PyPI), typically using twine:
+   ```shell
+   twine upload dist/*
+   ```
+
+8. If your project is hosted on GitHub or a similar platform, you may also want to create a GitHub release:
+   - Go to the "Releases" section of your repository.
+   - Draft a new release, using the new tag you've created.
+   - Add release notes summarizing the changes.
+   - Optionally, attach binaries or additional files that accompany the release.
+   - Publish the release.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+### Build
 build your package, first ensure you have the latest versions of `build` and `wheel` installed:
 
 ```shell
 pip install --upgrade build wheel
+pip install --upgrade twine
 ```
 
-## Install
+### Install
 Run the build module from the root of the project where the `pyproject.toml` file is located:
 
 ```shell
-python -m build
+python -m build --version 0.0.2
 ```
-
 This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
 
-## Publish
+### Publish
 After the build completes successfully, 
 upload your package to PyPI using `twine`:
 
 ```shell
-pip install --upgrade twine
 twine upload dist/*
 ```
-
-## Manual
-
-
-### init
-```bash
-pip install --upgrade pip
-pip install requests
-pip install setuptools
-```
-
 
 ### Test
 ```bash
@@ -73,17 +121,7 @@ pytest
 #python3 setup.py sdist bdist_wheel
 ```
 
-
-### Build
-```bash
-python -m build 
-#python3 setup.py sdist bdist_wheel
-```
-
-### Publish
-``bash
-twine upload dist/*
-```
+## Strategies
 
 ### Python
 

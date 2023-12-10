@@ -11,10 +11,11 @@ build-backend = "hatchling.build"
 
 
 [project.urls]
-homepage = "https://dialoget.github.io"
+homepage = "https://www.dialoget.com"
 repository = "https://github.com/dialoget/python"
-changelog = "https://dialoget.github.io/releases"
+changelog = "https://github.com/dialoget/python/releases"
 wiki = "https://github.com/dialoget/python/wiki"
+issue = "https://github.com/dialoget/python/issues/new"
 
 
 [project]

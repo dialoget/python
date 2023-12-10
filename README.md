@@ -1,5 +1,5 @@
 # test
-test.moduletool.com is a test framework for multilanguage source code
+python.dialoget.com is a test framework for multilanguage source code, based on decorators
 
 ## init
 ```bash

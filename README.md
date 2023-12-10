@@ -88,7 +88,7 @@ To update a release of a Python package, you'll typically go through the followi
    
 5. Tag the commit with the version number:
    ```shell
-   git tag -a v0.1.1 -m "Release version 0.1.1"
+   git tag -a v0.1.3 -m "Release version 0.1.3"
    git push --tags
    ```
    
@@ -99,7 +99,7 @@ Run the build module from the root of the project where the `pyproject.toml` fil
 This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
    ```shell
    pip install build
-   python -m build --version 0.1.2
+   python -m build --version 0.1.3
    ```
 
 

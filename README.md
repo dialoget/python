@@ -91,62 +91,38 @@ To update a release of a Python package, you'll typically go through the followi
    git tag -a v0.1.1 -m "Release version 0.1.1"
    git push --tags
    ```
+   
+## Build
 
-6. Build the new distribution files for the package using your chosen build tool, typically the build package:
+Build the new distribution files for the package using your chosen build tool, typically the build package:
+Run the build module from the root of the project where the `pyproject.toml` file is located:
+This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
    ```shell
-   python -m build
+   pip install build
+   python -m build --version 0.1.2
    ```
 
-7. Upload the new distribution files to the Python Package Index (PyPI), typically using twine:
+
+### Publish
+After the build completes successfully, upload the new distribution files to the Python Package Index (PyPI).
+Upload your package to PyPI using `twine`
    ```shell
    twine upload dist/*
    ```
 
-8. If your project is hosted on GitHub or a similar platform, you may also want to create a GitHub release:
-   - Go to the "Releases" section of your repository.
-   - Draft a new release, using the new tag you've created.
-   - Add release notes summarizing the changes.
-   - Optionally, attach binaries or additional files that accompany the release.
-   - Publish the release.
+### Github Release
 
+If your project is hosted on GitHub or a similar platform, you may also want to create a GitHub release:
+- Go to the "Releases" section of your repository.
+- Draft a new release, using the new tag you've created.
+- Add release notes summarizing the changes.
+- Optionally, attach binaries or additional files that accompany the release.
+- Publish the release.
 
-
-
-
-
-
-
-
-
-
-### Build
-build your package, first ensure you have the latest versions of `build` and `wheel` installed:
-
-```shell
-pip install --upgrade build wheel
-pip install --upgrade twine
-```
-
-### Install
-Run the build module from the root of the project where the `pyproject.toml` file is located:
-
-```shell
-python -m build --version 0.0.2
-```
-This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
-
-### Publish
-After the build completes successfully, 
-upload your package to PyPI using `twine`:
-
-```shell
-twine upload dist/*
-```
 
 ### Test
 ```bash
 pytest
-#python3 setup.py sdist bdist_wheel
 ```
 
 ## Strategies

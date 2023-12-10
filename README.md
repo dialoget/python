@@ -1,35 +1,89 @@
-# test
+# dialoget - python library
+
 python.dialoget.com is a test framework for multilanguage source code, based on decorators
-
-## init
-```bash
-pip install --upgrade pip
-pip install requests
-pip install behave
-pip install setuptools
-chmod +x test.sh
-```
-
-## Start testing
-with one bash script
-```bash
-./test.sh
-```
-
-or each script in command line
-
-```bash
-cd test/dialoget 
-python3 update_repo_on_github.py
-python3 update_repo_on_github2.py
-python3 create_repo_on_org_github.py
-```
-
-
 
 The test directory structure for Python and Java projects will often follow conventions that are supported by popular testing frameworks and project management tools.
 Below, are typical structures for both languages, which help in organizing tests based on their type (e.g., unit tests, functional tests, integration tests).
 
+
+```
+dialoget/
+│
+├── src/
+│   └── dialoget.py       # Python file with code for the package
+│
+├── tests/               # Unit tests for the package
+│   ├── dialoget.py
+│   └── test_module2.py
+│
+├── docs/                # Documentation for the package
+│   ├── conf.py
+│   ├── index.rst
+│   └── ...
+│
+├── README.md            # README file with a description of the package, installation instructions, etc.
+├── LICENSE              # License file specifying how the package can be used and shared
+├── setup.py             # Setuptools script for installation and distribution of the package
+├── setup.cfg            # Configuration settings for setuptools
+├── requirements.txt     # File listing all dependencies for the package
+└── .gitignore           # Specifies intentionally untracked files to ignore for git
+```
+
+
+
+## Build
+build your package, first ensure you have the latest versions of `build` and `wheel` installed:
+
+```shell
+pip install --upgrade build wheel
+```
+
+## Install
+Run the build module from the root of the project where the `pyproject.toml` file is located:
+
+```shell
+python -m build
+```
+
+This command will generate distribution files in the newly created `dist/` directory within your project. You will find both a source archive (`.tar.gz`) and a wheel file (`.whl`).
+
+## Publish
+After the build completes successfully, 
+upload your package to PyPI using `twine`:
+
+```shell
+pip install --upgrade twine
+twine upload dist/*
+```
+
+## Manual
+
+
+### init
+```bash
+pip install --upgrade pip
+pip install requests
+pip install setuptools
+```
+
+
+### Test
+```bash
+pytest
+#python3 setup.py sdist bdist_wheel
+```
+
+
+### Build
+```bash
+python -m build 
+#python3 setup.py sdist bdist_wheel
+```
+
+### Publish
+``bash
+twine upload dist/*
+```
 
 ### Python
 

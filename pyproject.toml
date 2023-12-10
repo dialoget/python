@@ -19,7 +19,7 @@ wiki = "https://github.com/dialoget/python/wiki"
 
 [project]
 name = "dialoget"
-version = "0.1.7"
+version = "0.1.8"
 #dynamic = ["dependencies"]
 #dynamic = ["version"]
 description = "A Sentence Python decorator for displaying dynamic log messages."

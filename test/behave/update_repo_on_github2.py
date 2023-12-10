@@ -22,18 +22,3 @@ def step_impl(context):
 @then('they see a welcome message')
 def step_impl(context):
     assert context.browser.shows_welcome_message()
-
-#print(FromEnv)
-#api_token="API token"
-#repo_name="Repository"
-#org_name="GitHub Organization"
-f'Connect to the github API {GITHUB_API_URL} with {api_token}'
-f'Update a {repo_name} on {org_name}'
-f'with a {description}'
-f'on the {domain}'
-result = update_repo_on_github2(api_token, org_name, repo_name, description, domain, GITHUB_API_URL)
-#print(result)
-print(result == 200)
-
-
-# f'Connect to {Github,github_url,GITHUB_API_URL} by {"API token",api_token,GITHUB_API_TOKEN}'

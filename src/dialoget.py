@@ -1,23 +1,21 @@
-import sys
-sys.path.append('../')
 import os
-#from functools import wraps
 import functools
 import csv
 from datetime import datetime
 
-
 # root path to the project
-#ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
-ROOT_PATH=''
-LOG_FILE='log.csv'
-ERROR_FILE='error.csv'
+# ROOT_PATH = os.path.abspath(os.path.dirname(__file__))
+ROOT_PATH = ''
+LOG_FILE = 'log.csv'
+ERROR_FILE = 'error.csv'
 LOG_PATH = os.path.join(ROOT_PATH, LOG_FILE)
 ERROR_PATH = os.path.join(ROOT_PATH, ERROR_FILE)
 
+
 def dialoget(template, logs_path=''):
-    USER_ERROR = os.path.abspath( os.path.join(logs_path,ERROR_PATH) )
-    USER_LOGS = os.path.abspath( os.path.join(logs_path,LOG_PATH) )
+    USER_ERROR = os.path.abspath(os.path.join(logs_path, ERROR_PATH))
+    USER_LOGS = os.path.abspath(os.path.join(logs_path, LOG_PATH))
+
     def decorator(func):
         @functools.wraps(func)
         def wrapper(*args, **kwargs):
@@ -50,7 +48,9 @@ def dialoget(template, logs_path=''):
             return func(*args, **kwargs)
 
         return wrapper
+
     return decorator
+
 
 def log_to_csv(file_name, log_dict):
     # Write log message or error to a CSV file
@@ -60,62 +60,3 @@ def log_to_csv(file_name, log_dict):
             writer.writeheader()
         writer.writerow(log_dict)
 
-
-"""
-def dialoget(template):
-    def decorator(func):
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            # Assuming the function returns a dictionary of replacements
-            replacements = func(*args, **kwargs)
-
-            # Replace placeholders in the template with actual values
-            filled_template = template.format(**replacements)
-
-            # Print or use the filled template string
-            print(filled_template)  # or you can return it, if needed
-
-            # Return the result of the function, if it's necessary.
-            return replacements
-
-        return wrapper
-
-    return decorator
-
-
-
-# This is the decorator factory that accepts arguments
-def dialoget2(sentence="Sentence"):
-    # This is the actual decorator
-    def decorator(func):
-        call_count = 0
-
-        @functools.wraps(func)
-        def wrapper(*args, **kwargs):
-            nonlocal call_count
-            call_count += 1
-            print(f"The sentence: {sentence} {func.__name__} has been called {call_count} times")
-            return func(*args, **kwargs)
-
-        return wrapper
-    return decorator
-
-
-
-
-# Usage example with decorator arguments
-
-def nfunc(func):
-    # This will hold the number of times the function has been called
-    call_count = 0
-
-    @wraps(func)  # Use this to preserve the original function's metadata
-    def wrapper(*args, **kwargs):
-        nonlocal call_count
-        call_count += 1
-        print(f"Function {func.__name__} has been called {call_count} times")
-        return func(*args, **kwargs)
-
-    return wrapper
-
-"""

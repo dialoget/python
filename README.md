@@ -6,6 +6,7 @@ python.dialoget.com is a test framework for multilanguage source code, based on 
 pip install --upgrade pip
 pip install requests
 pip install behave
+pip install setuptools
 chmod +x test.sh
 ```
 
@@ -18,7 +19,7 @@ with one bash script
 or each script in command line
 
 ```bash
-cd test
+cd test/dialoget 
 python3 update_repo_on_github.py
 python3 update_repo_on_github2.py
 python3 create_repo_on_org_github.py

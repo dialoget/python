@@ -37,12 +37,38 @@ pip install dialoget==0.0.1
 ```
 
 
+
 ## Contribution
+
+
+### Github preparation
+
++ [Git - First-Time Git Setup](https://git-scm.com/book/en/v2/Getting-Started-First-Time-Git-Setup)
+   ```shell
+   git config --global user.name "John Doe"
+   git config --global user.email johndoe@example.com
+   ```
+  
++ [About remote repositories - GitHub Docs](https://docs.github.com/en/get-started/getting-started-with-git/about-remote-repositories#cloning-with-https-urls)
+```shell
+ssh-keygen -p -f ~/.ssh/id_ed25519
+```
+
++ [SSH and GPG keys on Github](https://github.com/settings/keys)
+```shell
+cat ~/.ssh/id_ed25519.pub
+```
+
+if, after git push will ask for credentials put the API key as passwort
++ [Personal Access Tokens (Classic)](https://github.com/settings/tokens)
+
+
+### Repository update
 
 To update a release of a Python package, you'll typically go through the following general steps:
 
 1. Update the code or documentation to incorporate the new changes or improvements.
-
+   
 2. Update the package version number to indicate a new release:
    - Follow semantic versioning (or "semver") principles, using version numbers like MAJOR.MINOR.PATCH:
      - Increment the MAJOR version when you make incompatible API changes,
@@ -82,10 +108,6 @@ To update a release of a Python package, you'll typically go through the followi
    - Add release notes summarizing the changes.
    - Optionally, attach binaries or additional files that accompany the release.
    - Publish the release.
-
-
-
-
 
 
 

@@ -6,6 +6,8 @@
 
 python.dialoget.com is a test framework for multilanguage source code, based on decorators
 
+Decorators in Python provide a way to modify or extend the behavior of a function without changing the function's source code. This can be particularly useful for debugging purposes, because you can add logging, timing, or other diagnostic features to a function without cluttering up the function's code. Here are a few examples of decorators that can be used for debugging.
+
 The test directory structure for Python and Java projects will often follow conventions that are supported by popular testing frameworks and project management tools.
 Below, are typical structures for both languages, which help in organizing tests based on their type (e.g., unit tests, functional tests, integration tests).
 
